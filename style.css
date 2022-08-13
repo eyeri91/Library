@@ -1,0 +1,14 @@
+:root {
+    /* Fonts */
+    --title-text: 'DynaPuff', cursive;
+    --main-text: 'Nunito', sans-serif;
+    /* Colors */
+}
+
+body>* {
+    border: 1px solid brown;
+}
+
+header {
+    height: 20vh;
+}
