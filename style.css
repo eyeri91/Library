@@ -3,11 +3,15 @@
     --title-text: 'DynaPuff', cursive;
     --main-text: 'Nunito', sans-serif;
     /* Colors */
+    --main-bg: #e5e7eb;
+    --shadow: #9ca3af;
 }
 
 
 header {
-    height: 20vh;
+    height: auto;
+    z-index: 1;
+    box-shadow: 0 6px 10px -4px var(--shadow);
 }
 
 header .title {
@@ -21,6 +25,7 @@ header .records>* {
 
 main {
     height: 75vh;
+    /* background-color: var(--main-bg); */
 }
 
 footer {
