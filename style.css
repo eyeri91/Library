@@ -5,10 +5,15 @@
     /* Colors */
     --main-bg: #e5e7eb;
     --shadow: #9ca3af;
+    --header-bg: #f9fafb;
 }
 
+body {
+    background-color: var(--main-bg);
+}
 
 header {
+    background-color: var(--header-bg);
     height: auto;
     z-index: 1;
     box-shadow: 0 6px 10px -4px var(--shadow);
@@ -25,7 +30,7 @@ header .records>* {
 
 main {
     height: 75vh;
-    /* background-color: var(--main-bg); */
+
 }
 
 footer {
