@@ -8,6 +8,10 @@ class Book {
     }
 }
 
+class UI {
+
+}
+
 
 
 // function Book(title, author, pages, isRead) {
