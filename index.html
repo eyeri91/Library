@@ -16,25 +16,24 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="title">The library</h1>
-            <div class="records">
-                <div class="total">Registered books: <span class="numOfTotal"># </span></div>
-                <div class="finished">Finished books: <span class="numOfFinished"># </span></div>
+    <div class="container">
+        <header class="header container d-flex flex-column align-items-center">
+            <h1 class="title row display-1 justify-content-center my-3 p-2">The library</h1>
+            <div class="records row">
+                <div class="total col">Total books: <span class="numOfTotal"># </span></div>
+                <div class="finished col">Finished: <span class="numOfFinished"># </span></div>
             </div>
-        </div>
-    </header>
-    <main class="main-container">
-        <button class="add-book">+ Add a book
-        </button>
-        <div class="books">
-
-        </div>
-    </main>
-    <footer class="footer">
-        <h6>Yuri The Doer</h6>
-    </footer>
+        </header>
+        <main class="main-container container text-center">
+            <button class="add-book mt-3">+ Add a book
+            </button>
+            <div class="books">
+            </div>
+        </main>
+        <footer class="footer text-center">
+            <h6>Yuri The Doer</h6>
+        </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>

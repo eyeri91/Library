@@ -5,10 +5,24 @@
     /* Colors */
 }
 
-body>* {
-    border: 1px solid brown;
-}
 
 header {
     height: 20vh;
+}
+
+header .title {
+    font-family: var(--title-text);
+}
+
+header .records>* {
+    font-family: var(--main-text);
+    width: 10rem;
+}
+
+main {
+    height: 75vh;
+}
+
+footer {
+    height: 30px;
 }
