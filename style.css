@@ -28,6 +28,10 @@ header .records>* {
     width: 10rem;
 }
 
+.add-book {
+    font-family: var(--title-text);
+}
+
 main {
     height: 75vh;
 
