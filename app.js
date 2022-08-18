@@ -7,9 +7,6 @@ class Book {
         this.isRead = isRead;
     }
 
-    addBookToLibrary() {
-        myLibrary.books.push(this);
-    }
 }
 
 // Library class
@@ -18,6 +15,9 @@ class Library {
         this.books = []
     }
 
+    addNewBook(book) {
+        myLibrary.books.push(this);
+    }
     // findBook = () => { }
     // removeBook = () => { }
     // editBook
@@ -28,6 +28,12 @@ const example = new Book('Name of the book', 'Author name', 300, false);
 example.addBookToLibrary();
 
 // UI
+
+const Display = document.getElementsByClassName('books');
+// const bookCard = document.createElement('div');
+bookCard.classList.add('book');
+
+
 
 
 // function Book(title, author, pages, isRead) {
