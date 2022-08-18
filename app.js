@@ -29,6 +29,8 @@ example.addBookToLibrary();
 
 // UI
 
+const Display = document.getElementsByClassName('books');
+
 
 // function Book(title, author, pages, isRead) {
 //     this.capitalize = function (item) {
