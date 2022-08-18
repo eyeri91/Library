@@ -16,15 +16,14 @@ class Library {
     }
 
     addNewBook(book) {
-        myLibrary.books.push(this);
+        myLibrary.books.push(book);
+        createBookCard(book);
     }
     // findBook = () => { }
     // removeBook = () => { }
     // editBook
 
 }
-const myLibrary = new Library();
-const example = new Book('Name of the book', 'Author name', 300, false);
 
 // UI
 
@@ -76,9 +75,10 @@ function createBookCard(book) {
     checkLabel.innerText = "Finished";
     editBtn.innerText = "Edit"
     editBtn.innerText = "Delete";
-
-
 }
+
+const myLibrary = new Library();
+const example = new Book('Name of the book', 'Author name', 300, false);
 
 
 
