@@ -1,6 +1,7 @@
-//  Book class
+import { v4 as newId } from 'uuid';
 class Book {
     constructor(title, author, pages, isRead) {
+        this.id = newId();
         this.title = title;
         this.author = author;
         this.pages = pages;
