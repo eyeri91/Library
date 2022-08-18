@@ -1,4 +1,4 @@
-let myLibrary = [];
+//  Book class
 class Book {
     constructor(title, author, pages, isRead) {
         this.title = title;
@@ -6,12 +6,28 @@ class Book {
         this.pages = pages;
         this.isRead = isRead;
     }
+
+    addBookToLibrary() {
+        myLibrary.books.push(this);
+    }
 }
 
-class UI {
+// Library class
+class Library {
+    constructor() {
+        this.books = []
+    }
+
+    // findBook = () => { }
+    // removeBook = () => { }
+    // editBook
 
 }
+const myLibrary = new Library();
+const example = new Book('Name of the book', 'Author name', 300, false);
+example.addBookToLibrary();
 
+// UI
 
 
 // function Book(title, author, pages, isRead) {
