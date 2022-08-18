@@ -25,14 +25,15 @@ class Library {
 }
 const myLibrary = new Library();
 const example = new Book('Name of the book', 'Author name', 300, false);
-example.addBookToLibrary();
 
 // UI
 
 const Display = document.getElementsByClassName('books');
-// const bookCard = document.createElement('div');
-bookCard.classList.add('book');
 
+function createBookCard(book) {
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
+}
 
 
 
