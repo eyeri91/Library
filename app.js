@@ -16,15 +16,21 @@ class Library {
         this.books = []
     }
 
-    addNewBook(book) {
-        myLibrary.books.push(book);
-        createBookCard(book);
+    addNewBook(newBook) {
+        if (!this.isInLibrary) {
+            myLibrary.books.push(newBook);
+            createBookCard(newBook);
+        }
+    }
+
+    isInLibrary(newBook) {
+        return this.books.some((book) => book.id === newBook.id);
     }
     // findBook = () => { }
     // removeBook = () => { }
     // editBook
-
 }
+
 
 // UI
 
