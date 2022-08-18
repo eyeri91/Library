@@ -57,9 +57,20 @@ footer {
     height: 300px;
 }
 
-
 .card-body {
     display: grid;
     grid-template-areas: 1fr 4fr;
     align-items: center;
+    justify-items: center;
+}
+
+/* .book-checkbox,
+.book-btns {
+    justify-items: center;
+} */
+
+.form-check {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 }
