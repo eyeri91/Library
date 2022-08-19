@@ -1,3 +1,4 @@
+// Book class
 class Book {
     constructor(title, author, pages, isRead) {
         this.title = title.charAt(0).toUpperCase() + title.slice(1);
@@ -94,4 +95,19 @@ const example = new Book('The girl on the train', 'Author name', 300, false);
 myLibrary.addNewBook(example);
 
 
+// DOM Manipulation
 
+// New book input
+const newTitle = document.getElementById('new-title');
+const newAuthor = document.getElementById('new-author');
+const newPages = document.getElementById('new-pages');
+const isFinished = document.getElementById('book-finished');
+const allInputs = document.getElementsByClassName('book-form');
+const saveBtn = document.getElementById('save');
+
+
+saveBtn.addEventListener('click', getBookDetails);
+
+function getBookDetails() {
+    console.log('Got the details');
+}
