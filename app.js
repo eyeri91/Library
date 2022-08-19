@@ -24,19 +24,21 @@ class Library {
     }
 
     addNewBook(newBook) {
-        if (!this.isInLibrary(newBook)) {
-            myLibrary.books.push(newBook);
-            createBookCard(newBook);
-        }
+        // if (!this.isInLibrary(newBook)) {
+        myLibrary.books.push(newBook);
+        createBookCard(newBook);
+        // }
     }
 
-    isInLibrary(newBook) {
-        return this.books.some((book) => book.id === newBook.id);
-    }
+    // isInLibrary(newBook) {
+    //     return this.books.some((book) => book.id === newBook.id);
+    // }
     // findBook = () => { }
     // removeBook = () => { }
     // editBook
 }
+
+const myLibrary = new Library();
 
 // UI
 
@@ -72,7 +74,7 @@ function createBookCard(book) {
     checkInput.type = "checkbox";
     checkLabel.classList.add('form-check-label');
     checkLabel.htmlFor = "flexCheckDefault";
-
+    ``
     // buttons
     btns.classList.add('book-btns');
     editBtn.classList.add('btn', 'edit-btn', 'me-4', 'btn-primary');
@@ -88,12 +90,9 @@ function createBookCard(book) {
     checkLabel.innerText = "Finished";
     editBtn.innerText = "Edit"
     deleteBtn.innerText = "Delete";
+
+    deleteBtn.addEventListener('click', removeBookCard);
 }
-
-const myLibrary = new Library();
-const example = new Book('The girl on the train', 'Author name', 300, false);
-myLibrary.addNewBook(example);
-
 
 // DOM Manipulation
 
@@ -109,7 +108,9 @@ const saveBtn = document.getElementById('save');
 saveBtn.addEventListener('click', getBookDetails);
 
 function getBookDetails() {
-    console.log('Got the details');
+    const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, isFinished.checked);
+    console.log(newBook);
+    myLibrary.addNewBook(newBook);
 }
 
 function checkIfEmpty(inputs) {
@@ -119,3 +120,10 @@ function checkIfEmpty(inputs) {
         } else saveBtn.disabled = true;
     }
 }
+
+function removeBookCard() {
+
+}
+
+const example = new Book('Book Title', 'Author name', 300, false);
+myLibrary.addNewBook(example);
