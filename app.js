@@ -111,3 +111,11 @@ saveBtn.addEventListener('click', getBookDetails);
 function getBookDetails() {
     console.log('Got the details');
 }
+
+function checkIfEmpty(inputs) {
+    for (const input of inputs) {
+        if (input.value) {
+            saveBtn.disabled = false;
+        } else saveBtn.disabled = true;
+    }
+}
