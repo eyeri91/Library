@@ -74,9 +74,9 @@ function createBookCard(book) {
 
     // buttons
     btns.classList.add('book-btns');
-    editBtn.classList.add('btn', 'edit-btn');
+    editBtn.classList.add('btn', 'edit-btn', 'me-4', 'btn-primary');
     editBtn.type = "button";
-    deleteBtn.classList.add('btn', 'delete-btn');
+    deleteBtn.classList.add('btn', 'delete-btn', 'btn-danger');
     deleteBtn.type = "button";
 
     // Book details.
@@ -90,7 +90,7 @@ function createBookCard(book) {
 }
 
 const myLibrary = new Library();
-const example = new Book('Name of the book', 'Author name', 300, false);
+const example = new Book('The girl on the train', 'Author name', 300, false);
 myLibrary.addNewBook(example);
 
 
