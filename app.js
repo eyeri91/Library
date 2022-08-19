@@ -1,9 +1,17 @@
 class Book {
     constructor(title, author, pages, isRead) {
-        this.title = title;
-        this.author = author;
+        this.title = title.charAt(0).toUpperCase() + title.slice(1);
+        this.author = this.capitalize(author);
         this.pages = pages;
         this.isRead = isRead;
+    }
+
+    capitalize = function (item) {
+        const words = item.split(" ");
+        for (let i = 0; i < words.length; i++) {
+            words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+        }
+        return words.join(" ");
     }
 
 }
@@ -37,8 +45,8 @@ function createBookCard(book) {
     const bookCard = document.createElement('div');
     const cardBody = document.createElement('div');
     const title = document.createElement('h3')
-    const author = document.createElement('h4');
-    const pages = document.createElement('h4');
+    const by = document.createElement('h4');
+    const length = document.createElement('h4');
     const status = document.createElement('div');
     const checkInput = document.createElement('input');
     const checkLabel = document.createElement('label');
@@ -48,15 +56,15 @@ function createBookCard(book) {
 
     display.appendChild(bookCard);
     bookCard.appendChild(cardBody);
-    cardBody.append(title, author, pages, status, btns);
+    cardBody.append(title, by, length, status, btns);
     status.append(checkInput, checkLabel);
     btns.append(editBtn, deleteBtn);
 
     bookCard.classList.add('book-card', 'card');
     cardBody.classList.add('card-body');
     title.classList.add('book-title', 'card-title', 'mb-3');
-    author.classList.add('book-author', 'card-title', 'mb-3');
-    pages.classList.add('book-page', 'card-title', 'mb-2');
+    by.classList.add('book-by', 'card-title', 'mb-3');
+    length.classList.add('book-length', 'card-title', 'mb-2');
     status.classList.add('book-status', 'form-check');
     checkInput.classList.add('form-check-input');
     checkInput.id = "flexCheckDefault";
@@ -73,12 +81,12 @@ function createBookCard(book) {
 
     // Book details.
     title.innerText = book.title;
-    author.innerText = book.author;
-    pages.innerText = book.pages;
+    by.innerText = 'by : ' + book.author;
+    length.innerText = 'pages : ' + book.pages;
     checkInput.checked = book.isRead;
     checkLabel.innerText = "Finished";
     editBtn.innerText = "Edit"
-    editBtn.innerText = "Delete";
+    deleteBtn.innerText = "Delete";
 }
 
 const myLibrary = new Library();
@@ -87,33 +95,3 @@ myLibrary.addNewBook(example);
 
 
 
-// function Book(title, author, pages, isRead) {
-//     this.capitalize = function (item) {
-//         const words = item.split(" ");
-//         for (let i = 0; i < words.length; i++) {
-//             words[i] = words[i][0].toUpperCase() + words[1].substr(1);
-//         }
-//         return words.join(" ");
-//     }
-//     this.title = title.charAt(0).toUpperCase() + title.slice(1);
-//     this.author = this.capitalize(author);
-//     this.pages = pages
-//     this.isRead = isRead
-//     this.info = function () {
-//         let bookInfo = `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead}`;
-//         return bookInfo;
-//     }
-// }
-
-// Book.prototype.capitalize = function (item) {
-//     const words = item.split(" ");
-//     for (let i = 0; i < words.length; i++) {
-//         words[i] = words[i][0].toUpperCase() + words[1].substr(1);
-//     }
-//     return words.join(" ");
-// }
-
-
-// const newBook = new Book('"the girl on the train"', 'paula hawkins', 200, false);
-
-// console.log(newBook.author);
