@@ -63,7 +63,9 @@ footer {
     justify-items: left;
 }
 
-.book-btns {
+.book-title,
+.book-btns,
+.book-status {
     justify-self: center;
 }
 
