@@ -1,7 +1,5 @@
-import { v4 as newId } from 'uuid';
 class Book {
     constructor(title, author, pages, isRead) {
-        this.id = newId();
         this.title = title;
         this.author = author;
         this.pages = pages;
@@ -17,7 +15,7 @@ class Library {
     }
 
     addNewBook(newBook) {
-        if (!this.isInLibrary) {
+        if (!this.isInLibrary(newBook)) {
             myLibrary.books.push(newBook);
             createBookCard(newBook);
         }
@@ -31,10 +29,9 @@ class Library {
     // editBook
 }
 
-
 // UI
 
-const Display = document.getElementsByClassName('books');
+const display = document.getElementById('books');
 
 function createBookCard(book) {
     const bookCard = document.createElement('div');
@@ -49,8 +46,8 @@ function createBookCard(book) {
     const editBtn = document.createElement('button');
     const deleteBtn = document.createElement('button');
 
-    Display.append(bookCard);
-    bookCard.append(cardBody);
+    display.appendChild(bookCard);
+    bookCard.appendChild(cardBody);
     cardBody.append(title, author, pages, status, btns);
     status.append(checkInput, checkLabel);
     btns.append(editBtn, deleteBtn);
@@ -86,6 +83,7 @@ function createBookCard(book) {
 
 const myLibrary = new Library();
 const example = new Book('Name of the book', 'Author name', 300, false);
+myLibrary.addNewBook(example);
 
 
 
