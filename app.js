@@ -35,8 +35,12 @@ class Library {
     isInLibrary(newBook) {
         return this.books.some((book) => book.title === newBook.title);
     }
+
+    removeBook(title) {
+        this.books = this.books.filter((book) => book.title !== title);
+    }
     // findBook = () => { }
-    // removeBook = () => { }
+
     // editBook
 }
 
@@ -133,7 +137,10 @@ function checkIfEmpty(inputs) {
 
 function removeBookCard(e) {
     const cardContainer = e.target.parentNode.parentNode.parentNode;
+    const bookTitle = (e.target.parentNode.parentNode.firstChild.innerText);
+
     cardContainer.remove();
+    myLibrary.removeBook(bookTitle);
 }
 
 const example = new Book('Book Title', 'Author name', 300, false);
