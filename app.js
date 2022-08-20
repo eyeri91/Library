@@ -104,7 +104,7 @@ class BookCard {
         deleteBtn.innerText = "Delete";
 
         editBtn.setAttribute("data-bs-toggle", 'modal');
-        editBtn.setAttribute("data-bs-target", '#add-book-modal');
+        editBtn.setAttribute("data-bs-target", '#edit-book-modal');
 
         deleteBtn.addEventListener('click', removeBookCard);
         editBtn.addEventListener('click', openModal);
