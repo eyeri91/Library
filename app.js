@@ -103,7 +103,11 @@ class BookCard {
         editBtn.innerText = "Edit"
         deleteBtn.innerText = "Delete";
 
+        editBtn.setAttribute("data-bs-toggle", 'modal');
+        editBtn.setAttribute("data-bs-target", '#add-book-modal');
+
         deleteBtn.addEventListener('click', removeBookCard);
+        editBtn.addEventListener('click', openModal);
     }
 
 }
@@ -117,6 +121,13 @@ const newPages = document.getElementById('new-pages');
 const isFinished = document.getElementById('book-finished');
 const allInputs = document.getElementsByClassName('book-form');
 const saveBtn = document.getElementById('save');
+
+// Edit modal
+const modal = document.getElementById('add-book-modal');
+
+function openModal() {
+    console.log('Modal opened');
+}
 
 
 saveBtn.addEventListener('click', getBookDetails);
@@ -147,7 +158,5 @@ const example = new Book('Book Title', 'Author name', 300, false);
 myLibrary.addNewBook(example);
 
 
-
-// How to react to the Delete button?
 // IF empty input value-> save button disabled.
 //  Pages input has to be number!
