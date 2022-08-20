@@ -98,11 +98,10 @@ class BookCard {
         checkLabel.innerText = "Finished";
         editBtn.innerText = "Edit"
         deleteBtn.innerText = "Delete";
+
+        deleteBtn.addEventListener('click', removeBookCard);
     }
 
-    // removeBookCard(book) {
-
-    // }
 }
 
 // DOM Manipulation
@@ -132,6 +131,10 @@ function checkIfEmpty(inputs) {
     }
 }
 
+function removeBookCard(e) {
+    const cardContainer = e.target.parentNode.parentNode.parentNode;
+    cardContainer.remove();
+}
 
 const example = new Book('Book Title', 'Author name', 300, false);
 myLibrary.addNewBook(example);
