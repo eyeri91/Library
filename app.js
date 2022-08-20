@@ -26,7 +26,7 @@ class Library {
     addNewBook(newBook) {
         // if (!this.isInLibrary(newBook)) {
         myLibrary.books.push(newBook);
-        createBookCard(newBook);
+        const bookCard = new BookCard(newBook);
         // }
     }
 
@@ -44,54 +44,62 @@ const myLibrary = new Library();
 
 const display = document.getElementById('books');
 
-function createBookCard(book) {
-    const bookCard = document.createElement('div');
-    const cardBody = document.createElement('div');
-    const title = document.createElement('h3')
-    const by = document.createElement('h4');
-    const length = document.createElement('h4');
-    const status = document.createElement('div');
-    const checkInput = document.createElement('input');
-    const checkLabel = document.createElement('label');
-    const btns = document.createElement('div');
-    const editBtn = document.createElement('button');
-    const deleteBtn = document.createElement('button');
+class BookCard {
+    constructor(book) {
+        this.title = book.title
+        this.author = book.author;
+        this.pages = book.pages;
+        this.isRead = book.isRead;
 
-    display.appendChild(bookCard);
-    bookCard.appendChild(cardBody);
-    cardBody.append(title, by, length, status, btns);
-    status.append(checkInput, checkLabel);
-    btns.append(editBtn, deleteBtn);
+        const cardBody = document.createElement('div');
+        const bookCard = document.createElement('div');
+        const title = document.createElement('h3')
+        const by = document.createElement('h4');
+        const length = document.createElement('h4');
+        const status = document.createElement('div');
+        const checkInput = document.createElement('input');
+        const checkLabel = document.createElement('label');
+        const btns = document.createElement('div');
+        const editBtn = document.createElement('button');
+        const deleteBtn = document.createElement('button');
 
-    bookCard.classList.add('book-card', 'card');
-    cardBody.classList.add('card-body');
-    title.classList.add('book-title', 'card-title', 'mb-3');
-    by.classList.add('book-by', 'card-title', 'mb-3');
-    length.classList.add('book-length', 'card-title', 'mb-2');
-    status.classList.add('book-status', 'form-check');
-    checkInput.classList.add('form-check-input');
-    checkInput.id = "flexCheckDefault";
-    checkInput.type = "checkbox";
-    checkLabel.classList.add('form-check-label');
-    checkLabel.htmlFor = "flexCheckDefault";
+        display.appendChild(bookCard);
+        bookCard.appendChild(cardBody);
+        cardBody.append(title, by, length, status, btns);
+        status.append(checkInput, checkLabel);
+        btns.append(editBtn, deleteBtn);
 
-    // buttons
-    btns.classList.add('book-btns');
-    editBtn.classList.add('btn', 'edit-btn', 'me-4', 'btn-primary');
-    editBtn.type = "button";
-    deleteBtn.classList.add('btn', 'delete-btn', 'btn-danger');
-    deleteBtn.type = "button";
+        bookCard.classList.add('book-card', 'card');
+        cardBody.classList.add('card-body');
+        title.classList.add('book-title', 'card-title', 'mb-3');
+        by.classList.add('book-by', 'card-title', 'mb-3');
+        length.classList.add('book-length', 'card-title', 'mb-2');
+        status.classList.add('book-status', 'form-check');
+        checkInput.classList.add('form-check-input');
+        checkInput.id = "flexCheckDefault";
+        checkInput.type = "checkbox";
+        checkLabel.classList.add('form-check-label');
+        checkLabel.htmlFor = "flexCheckDefault";
 
-    // Book details.
-    title.innerText = book.title;
-    by.innerText = 'by : ' + book.author;
-    length.innerText = 'pages : ' + book.pages;
-    checkInput.checked = book.isRead;
-    checkLabel.innerText = "Finished";
-    editBtn.innerText = "Edit"
-    deleteBtn.innerText = "Delete";
+        // buttons
+        btns.classList.add('book-btns');
+        editBtn.classList.add('btn', 'edit-btn', 'me-4', 'btn-primary');
+        editBtn.type = "button";
+        deleteBtn.classList.add('btn', 'delete-btn', 'btn-danger');
+        deleteBtn.type = "button";
 
-    deleteBtn.addEventListener('click', removeBookCard);
+        // Book details.
+        title.innerText = this.title;
+        by.innerText = 'by : ' + this.author;
+        length.innerText = 'pages : ' + this.pages;
+        checkInput.checked = this.isRead;
+        checkLabel.innerText = "Finished";
+        editBtn.innerText = "Edit"
+        deleteBtn.innerText = "Delete";
+    }
+
+
+    // deleteBtn.addEventListener('click', removeBookCard);
 }
 
 // DOM Manipulation
