@@ -53,20 +53,69 @@
                                 <input type="checkbox" class="form-check-input" id="book-finished">
                                 <label class="form-check-label" for="book-finished">I finished this book!</label>
                             </div>
-                            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-                        <button type="button" id="save" class="save btn btn-outline-primary" data-bs-dismiss="modal"
-                            disabled>Save changes</button>
+                        <button type="button" id="save" class="save btn btn-outline-primary"
+                            data-bs-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="books container" id="books">
-
-        </div>
+            <div class="modal fade" id="edit-book-modal" tabindex="-1" aria-labelledby="edit-book-modal"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal-label">Edit book details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            <form>
+                                <div class="mb-2">
+                                    <label for="new-title" class="form-label">Title</label>
+                                    <input type="text" class="form-control book-form" id="new-title">
+                                </div>
+                                <div class="mb-2">
+                                    <label for="new-author" class="form-label">Author</label>
+                                    <input type="text" class="form-control book-form" id="new-author">
+                                </div>
+                                <div class="mb-2">
+                                    <label for="new-pages" class="form-label">Pages</label>
+                                    <input type="text" class="form-control book-form" id="new-pages">
+                                </div>
+                                <div class="mb-2 form-check">
+                                    <input type="checkbox" class="form-check-input" id="book-finished">
+                                    <label class="form-check-label" for="book-finished">I finished this book!</label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="save" class="save btn btn-outline-primary"
+                                data-bs-dismiss="modal">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="book-card card">
+                <div class="card-body">
+                    <h3 class="book-title card-title mb-3">Book Title</h3>
+                    <h4 class="book-by card-title mb-3">by : Author Name</h4>
+                    <h4 class="book-length card-title mb-2">pages : 300</h4>
+                    <div class="book-status form-check">
+                        <input class="form-check-input" id="flexCheckDefault" type="checkbox">
+                        <label class="form-check-label" for="flexCheckDefault">Finished</label>
+                    </div>
+                    <div class="book-btns">
+                        <button class="btn edit-btn me-4 btn-primary" type="button" data-bs-toggle="modal"
+                            data-bs-target="#add-book-modal">Edit</button>
+                        <button class="btn delete-btn btn-danger" type="button">Delete</button>
+                    </div>
+                </div>
+            </div> -->
+            </div>
     </main>
     <footer class="footer text-center">
         <h6>Yuri The Doer</h6>
