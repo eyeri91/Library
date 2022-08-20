@@ -24,15 +24,17 @@ class Library {
     }
 
     addNewBook(newBook) {
-        // if (!this.isInLibrary(newBook)) {
-        myLibrary.books.push(newBook);
-        const bookCard = new BookCard(newBook);
-        // }
+        if (!this.isInLibrary(newBook)) {
+            myLibrary.books.push(newBook);
+            const bookCard = new BookCard(newBook);
+        } else {
+            alert("This book is already in the library.")
+        }
     }
 
-    // isInLibrary(newBook) {
-    //     return this.books.some((book) => book.id === newBook.id);
-    // }
+    isInLibrary(newBook) {
+        return this.books.some((book) => book.title === newBook.title);
+    }
     // findBook = () => { }
     // removeBook = () => { }
     // editBook
@@ -98,8 +100,9 @@ class BookCard {
         deleteBtn.innerText = "Delete";
     }
 
+    // removeBookCard(book) {
 
-    // deleteBtn.addEventListener('click', removeBookCard);
+    // }
 }
 
 // DOM Manipulation
@@ -120,12 +123,6 @@ function getBookDetails() {
     myLibrary.addNewBook(newBook);
 }
 
-// allInputs.forEach(input => {
-//     input.addEventListener('change', (e) => {
-//         console.log('yo');
-//     })
-// })
-
 function checkIfEmpty(inputs) {
 
     for (const input of inputs) {
@@ -135,9 +132,6 @@ function checkIfEmpty(inputs) {
     }
 }
 
-function removeBookCard() {
-    console.log();
-}
 
 const example = new Book('Book Title', 'Author name', 300, false);
 myLibrary.addNewBook(example);
@@ -146,3 +140,4 @@ myLibrary.addNewBook(example);
 
 // How to react to the Delete button?
 // IF empty input value-> save button disabled.
+//  Pages input has to be number!
