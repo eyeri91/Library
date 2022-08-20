@@ -74,7 +74,7 @@ function createBookCard(book) {
     checkInput.type = "checkbox";
     checkLabel.classList.add('form-check-label');
     checkLabel.htmlFor = "flexCheckDefault";
-    ``
+
     // buttons
     btns.classList.add('book-btns');
     editBtn.classList.add('btn', 'edit-btn', 'me-4', 'btn-primary');
@@ -109,11 +109,17 @@ saveBtn.addEventListener('click', getBookDetails);
 
 function getBookDetails() {
     const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, isFinished.checked);
-    console.log(newBook);
     myLibrary.addNewBook(newBook);
 }
 
+// allInputs.forEach(input => {
+//     input.addEventListener('change', (e) => {
+//         console.log('yo');
+//     })
+// })
+
 function checkIfEmpty(inputs) {
+
     for (const input of inputs) {
         if (input.value) {
             saveBtn.disabled = false;
@@ -122,8 +128,13 @@ function checkIfEmpty(inputs) {
 }
 
 function removeBookCard() {
-
+    console.log();
 }
 
 const example = new Book('Book Title', 'Author name', 300, false);
 myLibrary.addNewBook(example);
+
+
+
+// How to react to the Delete button?
+// IF empty input value-> save button disabled.
