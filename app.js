@@ -17,6 +17,11 @@ class Book {
 }
 
 // Library class
+const totalNumberOfBooksDisplay = document.querySelector(".totalNumberOfBooks");
+const numberOfFinishedBooksDisplay = document.querySelector(
+  ".numberOfFinishedBooks"
+);
+
 class Library {
   constructor() {
     this.books = [];
@@ -26,6 +31,7 @@ class Library {
     if (!this.isInLibrary(newBook)) {
       myLibrary.books.push(newBook);
       const bookCard = new BookCard(newBook);
+      this.updateBookNumberDisplay();
     } else {
       alert("This book is already in the library.");
     }
@@ -43,15 +49,24 @@ class Library {
 
   removeBook(title) {
     this.books = this.books.filter((book) => book.title !== title);
+    this.updateBookNumberDisplay();
   }
 
+  numberOfFinishedBooks() {
+    const finishedBooks = this.books.filter((book) => book.isRead === true);
+    return finishedBooks.length;
+  }
+
+  updateBookNumberDisplay() {
+    totalNumberOfBooksDisplay.textContent = this.books.length;
+    numberOfFinishedBooksDisplay.textContent = this.numberOfFinishedBooks();
+  }
   // editBook(book) {
   //     const bookToEdit = this.getBook(book);
   //     bookToEdit.
 
   // }
 }
-const myLibrary = new Library();
 
 // UI
 
@@ -184,5 +199,6 @@ function removeBookCard(e) {
   myLibrary.removeBook(bookTitle);
 }
 
+const myLibrary = new Library();
 const example = new Book("Book Title", "Author name", 300, false);
 myLibrary.addNewBook(example);
