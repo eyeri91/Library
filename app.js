@@ -52,14 +52,14 @@ class Library {
     this.updateBookNumberDisplay();
   }
 
-  numberOfFinishedBooks() {
+  getNumberOfFinishedBooks() {
     const finishedBooks = this.books.filter((book) => book.isRead === true);
     return finishedBooks.length;
   }
 
   updateBookNumberDisplay() {
     totalNumberOfBooksDisplay.textContent = this.books.length;
-    numberOfFinishedBooksDisplay.textContent = this.numberOfFinishedBooks();
+    numberOfFinishedBooksDisplay.textContent = this.getNumberOfFinishedBooks();
   }
   // editBook(book) {
   //     const bookToEdit = this.getBook(book);
