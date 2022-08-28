@@ -129,7 +129,7 @@ class BookCard {
 
     deleteBtn.addEventListener("click", removeBookCard);
     editBtn.addEventListener("click", openModal);
-    // editSaveBtn.addEventListener("click", () => sendEditedData);
+    editSaveBtn.addEventListener("click", () => sendE);
   }
 }
 
