@@ -123,19 +123,19 @@ class BookCard {
     checkInput.checked = this.isRead;
     checkLabel.innerText = "Finished";
     editBtn.innerText = "Edit";
+    editBtn.disabled = true;
     deleteBtn.innerText = "Delete";
 
     editBtn.setAttribute("data-bs-toggle", "modal");
     editBtn.setAttribute("data-bs-target", "#edit-book-modal");
 
-    //
     // Edit modal
     const editTitle = document.getElementById("edit-title");
     const editAuthor = document.getElementById("edit-author");
     const editPages = document.getElementById("edit-pages");
     const editFinished = document.getElementById("edit-finished");
-    const editInputs = document.getElementsByClassName("edit-book-form");
-    const editSaveBtn = document.getElementById("edit-save");
+    // const editInputs = document.getElementsByClassName("edit-book-form");
+    // const editSaveBtn = document.getElementById("edit-save");
 
     editTitle.value = this.title;
     editAuthor.value = this.author;
@@ -143,15 +143,11 @@ class BookCard {
     editFinished.checked = this.isRead;
 
     deleteBtn.addEventListener("click", removeBookCard);
-    // editBtn.addEventListener("click", openModal);
     checkInput.addEventListener("click", toggleBookStatus);
-    // editSaveBtn.addEventListener("click", () => sendE);
   }
 }
 
-// DOM Manipulation
-
-// New book modal input
+// +Add a book modal input
 const addABookModal = document.getElementById("add-book-modal");
 const newTitle = document.getElementById("new-title");
 const newAuthor = document.getElementById("new-author");
@@ -159,10 +155,6 @@ const newPages = document.getElementById("new-pages");
 const isFinished = document.getElementById("book-finished");
 const allInputs = document.getElementsByClassName("add-book-form");
 const saveBtn = document.getElementById("save");
-
-// function openModal() {
-//   console.log("open modal");
-// }
 
 saveBtn.addEventListener("click", getBookDetails);
 
