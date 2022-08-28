@@ -43,7 +43,7 @@ class Library {
 
   //   Change the parameter to id from title later so that no need to worry about capitalized title
   getBook(title) {
-    const foundBook = this.books.filter((book) => book.title === title);
+    const foundBook = this.books.find((book) => book.title === title);
     return foundBook;
   }
 
@@ -143,7 +143,8 @@ class BookCard {
     editFinished.checked = this.isRead;
 
     deleteBtn.addEventListener("click", removeBookCard);
-    editBtn.addEventListener("click", openModal);
+    // editBtn.addEventListener("click", openModal);
+    checkInput.addEventListener("click", toggleBookStatus);
     // editSaveBtn.addEventListener("click", () => sendE);
   }
 }
@@ -159,9 +160,9 @@ const isFinished = document.getElementById("book-finished");
 const allInputs = document.getElementsByClassName("add-book-form");
 const saveBtn = document.getElementById("save");
 
-function openModal() {
-  console.log("open modal");
-}
+// function openModal() {
+//   console.log("open modal");
+// }
 
 saveBtn.addEventListener("click", getBookDetails);
 
@@ -199,6 +200,11 @@ function removeBookCard(e) {
   myLibrary.removeBook(bookTitle);
 }
 
+function toggleBookStatus(e) {
+  const bookTitle = e.target.parentNode.parentNode.firstChild.innerText;
+  const foundBook = myLibrary.getBook(bookTitle);
+  foundBook.isRead = !foundBook.isRead;
+}
 const myLibrary = new Library();
 const example = new Book("Book Title", "Author name", 300, false);
 myLibrary.addNewBook(example);
