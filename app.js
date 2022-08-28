@@ -136,6 +136,7 @@ class BookCard {
 // DOM Manipulation
 
 // New book modal input
+const addABookModal = document.getElementById("add-book-modal");
 const newTitle = document.getElementById("new-title");
 const newAuthor = document.getElementById("new-author");
 const newPages = document.getElementById("new-pages");
@@ -153,12 +154,14 @@ function checkIfInputsAreValid() {
   for (const input of allInputs) {
     if (input.value === "") {
       alert("The form is not completed yet!");
-      return;
+      return false;
     }
   }
   if (!Number(newPages.value)) {
     alert("Pages can be only number.");
+    return false;
   }
+  return true;
 }
 
 function getBookDetails() {
@@ -173,14 +176,6 @@ function getBookDetails() {
   }
 }
 
-// function checkIfEmpty(inputs) {
-//   for (const input of inputs) {
-//     if (input.value) {
-//       saveBtn.disabled = false;
-//     } else saveBtn.disabled = true;
-//   }
-// }
-
 function removeBookCard(e) {
   const cardContainer = e.target.parentNode.parentNode.parentNode;
   const bookTitle = e.target.parentNode.parentNode.firstChild.innerText;
@@ -191,10 +186,3 @@ function removeBookCard(e) {
 
 const example = new Book("Book Title", "Author name", 300, false);
 myLibrary.addNewBook(example);
-
-// IF empty input value-> save button disabled.
-//  Pages input has to be number!
-// valid input check/ page=> number
-// save -> below attribute
-// data-bs-dismiss="modal"
-// delete attribute when aad a book clicked.
