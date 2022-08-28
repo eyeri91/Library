@@ -142,8 +142,24 @@ class BookCard {
     editPages.value = this.pages;
     editFinished.checked = this.isRead;
 
-    deleteBtn.addEventListener("click", removeBookCard);
-    checkInput.addEventListener("click", toggleBookStatus);
+    deleteBtn.addEventListener("click", this.removeBookCard);
+    checkInput.addEventListener("click", this.toggleBookStatus);
+  }
+
+  removeBookCard(e) {
+    const cardContainer = e.target.parentNode.parentNode.parentNode;
+    const bookTitle = e.target.parentNode.parentNode.firstChild.innerText;
+
+    cardContainer.remove();
+    myLibrary.removeBook(bookTitle);
+  }
+
+  toggleBookStatus(e) {
+    const bookTitle = e.target.parentNode.parentNode.firstChild.innerText;
+    const foundBook = myLibrary.getBook(bookTitle);
+    foundBook.isRead = !foundBook.isRead;
+
+    myLibrary.updateBookNumberDisplay();
   }
 }
 
@@ -184,19 +200,6 @@ function getBookDetails() {
   }
 }
 
-function removeBookCard(e) {
-  const cardContainer = e.target.parentNode.parentNode.parentNode;
-  const bookTitle = e.target.parentNode.parentNode.firstChild.innerText;
-
-  cardContainer.remove();
-  myLibrary.removeBook(bookTitle);
-}
-
-function toggleBookStatus(e) {
-  const bookTitle = e.target.parentNode.parentNode.firstChild.innerText;
-  const foundBook = myLibrary.getBook(bookTitle);
-  foundBook.isRead = !foundBook.isRead;
-}
 const myLibrary = new Library();
 const example = new Book("Book Title", "Author name", 300, false);
 myLibrary.addNewBook(example);
