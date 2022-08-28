@@ -78,7 +78,7 @@ class BookCard {
     this.author = book.author;
     this.pages = book.pages;
     this.isRead = book.isRead;
-    ``;
+
     const cardBody = document.createElement("div");
     const bookCard = document.createElement("div");
     const title = document.createElement("h3");
@@ -102,12 +102,12 @@ class BookCard {
     title.classList.add("book-title", "card-title", "mb-3");
     by.classList.add("book-by", "card-title", "mb-3");
     length.classList.add("book-length", "card-title", "mb-2");
-    status.classList.add("book-status", "form-check");
+    status.classList.add("book-status", "form-switch", "form-check");
     checkInput.classList.add("form-check-input");
-    checkInput.id = "flexCheckDefault";
+    checkInput.id = "flexSwitchCheckDefault";
     checkInput.type = "checkbox";
+    checkInput.role = "switch";
     checkLabel.classList.add("form-check-label");
-    checkLabel.htmlFor = "flexCheckDefault";
 
     // buttons
     btns.classList.add("book-btns");
