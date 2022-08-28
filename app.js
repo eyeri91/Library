@@ -16,11 +16,6 @@ class Book {
   };
 }
 
-const totalNumberOfBooksDisplay = document.querySelector(".totalNumberOfBooks");
-const numberOfFinishedBooksDisplay = document.querySelector(
-  ".numberOfFinishedBooks"
-);
-
 // Library class
 const totalNumberOfBooksDisplay = document.querySelector(".totalNumberOfBooks");
 const numberOfFinishedBooksDisplay = document.querySelector(
@@ -207,18 +202,3 @@ function removeBookCard(e) {
 const myLibrary = new Library();
 const example = new Book("Book Title", "Author name", 300, false);
 myLibrary.addNewBook(example);
-
-// const totalNumberOfBooks = myLibrary.books.length;
-// const numberOfFinishedBooks = function () {
-//   const finishedBooks = myLibrary.books.filter((book) => book.isRead === true);
-//   return finishedBooks.length;
-// };
-// const totalNumberOfBooksDisplay = document.querySelector(".totalNumberOfBooks");
-// const numberOfFinishedBooksDisplay = document.querySelector(
-//   ".numberOfFinishedBooks"
-// );
-
-// function updateBookNumberDisplay() {
-//   totalNumberOfBooksDisplay.textContent = totalNumberOfBooks;
-//   numberOfFinishedBooksDisplay.textContent = numberOfFinishedBooks();
-// }
