@@ -129,7 +129,7 @@ class BookCard {
 
     deleteBtn.addEventListener("click", removeBookCard);
     editBtn.addEventListener("click", openModal);
-    editSaveBtn.addEventListener("click", () => sendE);
+    // editSaveBtn.addEventListener("click", () => sendE);
   }
 }
 
@@ -149,23 +149,37 @@ function openModal() {
 
 saveBtn.addEventListener("click", getBookDetails);
 
-function getBookDetails() {
-  const newBook = new Book(
-    newTitle.value,
-    newAuthor.value,
-    newPages.value,
-    isFinished.checked
-  );
-  myLibrary.addNewBook(newBook);
-}
-
-function checkIfEmpty(inputs) {
-  for (const input of inputs) {
-    if (input.value) {
-      saveBtn.disabled = false;
-    } else saveBtn.disabled = true;
+function checkIfInputsAreValid() {
+  for (const input of allInputs) {
+    if (input.value === "") {
+      alert("The form is not completed yet!");
+      return;
+    }
+  }
+  if (!Number(newPages.value)) {
+    alert("Pages can be only number.");
   }
 }
+
+function getBookDetails() {
+  if (checkIfInputsAreValid()) {
+    const newBook = new Book(
+      newTitle.value,
+      newAuthor.value,
+      newPages.value,
+      isFinished.checked
+    );
+    myLibrary.addNewBook(newBook);
+  }
+}
+
+// function checkIfEmpty(inputs) {
+//   for (const input of inputs) {
+//     if (input.value) {
+//       saveBtn.disabled = false;
+//     } else saveBtn.disabled = true;
+//   }
+// }
 
 function removeBookCard(e) {
   const cardContainer = e.target.parentNode.parentNode.parentNode;
@@ -180,3 +194,7 @@ myLibrary.addNewBook(example);
 
 // IF empty input value-> save button disabled.
 //  Pages input has to be number!
+// valid input check/ page=> number
+// save -> below attribute
+// data-bs-dismiss="modal"
+// delete attribute when aad a book clicked.
